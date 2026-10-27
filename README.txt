@@ -61,7 +61,23 @@ Teaching, industry, project, education, and leadership facts use the uploaded
 ArinaShah_fullCV(2).pdf. Tambe Lab dates are January–June 2026, as corrected.
 DMSim details and author names use the supplied final paper. It is described
 as a research paper without claiming an unverified publication venue.
-Company marks are embedded SVGs; there are no runtime logo downloads.
+Company marks are embedded SVGs. The Tambe Lab entry uses Stanford’s official
+Block S with Tree image from its Identity Guide (loaded over HTTPS).
+https://identity.stanford.edu/visual-identity/stanford-logos/block-s/
 
 GitHub documentation
 https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site
+
+OCTOBER 27 UPDATE
+AMD paper award copy follows the user-provided public-facing wording. It is
+highlighted inside the AMD entry, in the summary badge, and under Recognition.
+The attached Design Showcase Presentation.pdf is included unchanged as
+assets/presentations/ldo-design-showcase.pdf and linked from the LDO project.
+SIMD, ResNet-18, and DMSim were expanded using the technical excerpt supplied
+by the user on October 27. SIMD and ResNet-18 are described as academic projects, per the user’s
+preference. Both were completed by the user and one other student.
+Analytical exploration, simulation, synthesis estimates, and physical results
+are separated in the detail views. ResNet timing-clean signoff is not claimed.
+
+Project display order: ResNet-18, DMSim, LDO, mixed-precision SIMD, RISC-V,
+processor architecture, Smart Cane, crop protection planter.
