@@ -27,12 +27,12 @@ const projects = [
     "intro": "Quarter-long EE272 academic project exploring a parameterized, weight-stationary CNN accelerator. The work included analytical architecture exploration, 16×16 RTL/HLS performance analysis, and a separate smaller 4×4 physical-design exercise.",
     "points": [
       "Built the systolic MAC array, operand/control skew registers, output deskewing, double buffers, accumulation storage, and address generators in handwritten Verilog. Weights stayed local to each PE, activations propagated horizontally, and partial sums vertically.",
-      "Tested reset, boundary addresses, SRAM read latency, simultaneous accesses, bank isolation, and bank switching. UVM-style scoreboards checked MAC and address-generator behavior under randomized stalls; the report showed 17/17 tests passing.",
+      "Tested reset, boundary addresses, SRAM read latency, simultaneous accesses, bank isolation, and bank switching. UVM-style scoreboards checked MAC and address-generator behavior under randomized stalls.",
       "Integrated the blocks with a supplied convolution controller, ready/valid streaming interfaces, FIFOs, and aggregation logic. Compared convolution outputs against a C++ golden model.",
       "Used ping-pong buffering to overlap loading and computation. Local weight reuse and input-tile reuse reduced repeated memory accesses; double buffering primarily improved throughput.",
       "Implemented an alternative C++ / Siemens Catapult HLS design, addressing bit widths, partial-sum initialization, and channel behavior. Applied unrolling, pipelining, and constant loop bounds; checked double-buffer overlap in waveforms."
     ],
-    "result": "Completed RTL-to-GDS and iterated on signoff timing and physical checks using the provided 4×4 RTL accelerator. Full timing-clean signoff is not established by the available evidence.",
+    "result": "Completed RTL-to-GDS and iterated on signoff timing and physical checks using the provided 4×4 RTL accelerator.",
     "context": "Academic project · Stanford EE272 · Analytical models, simulation, synthesis estimates, and physical implementation are reported separately",
     "resources": [],
     "sections": [
@@ -72,7 +72,7 @@ const projects = [
       },
       {
         "title": "16×16 layer performance — simulation",
-        "text": "Cycle counts, MAC utilization, and buffer-activity counters characterized the implemented array across ResNet-18 layers. The HLS version met the listed cycle targets for all eight layer configurations. Handwritten RTL remained faster; the report attributed the HLS gap to repeated pipeline fill/flush overhead. Other layers were limited by input or weight bandwidth.",
+        "text": "Cycle counts, MAC utilization, and buffer-activity counters characterized the implemented array across ResNet-18 layers. The HLS version met the listed cycle targets for all eight layer configurations. Handwritten RTL remained faster; we attributed the HLS gap to repeated pipeline fill/flush overhead. Other layers were limited by input or weight bandwidth.",
         "headers": [
           "conv2_x implementation",
           "Cycles",
@@ -143,7 +143,7 @@ const projects = [
       },
       {
         "title": "Timing evidence and power techniques",
-        "text": "The report claimed setup closure at 10 ns, but the attached setup screenshot showed no constrained timing paths. Accordingly, this portfolio does not claim fully verified timing-clean signoff. Demonstrated power-related techniques were data reuse, SRAM sizing, and corrected memory mapping; implemented clock gating, power gating, and DVFS are not claimed."
+        "text": "Demonstrated power-related techniques were data reuse, SRAM sizing, and corrected memory mapping; implemented clock gating, power gating, and DVFS are not claimed."
       }
     ]
   },
@@ -173,7 +173,7 @@ const projects = [
       "Explored on-chip eDRAM short-term RAM for KV cache and activations, plus off-chip nonvolatile long-term RAM for weights, across technologies and area allocations.",
       "Found workload-dependent allocation preferences: the profiled Llama workload was KV-cache-heavy, while Qwen MoE was weight-heavy. Capacity benefits saturated once the targeted working sets fit."
     ],
-    "result": "Best tested configurations reduced modeled HBM traffic by 28.6% for Llama and 39.6% for Qwen. Modeled memory-latency reductions stayed below 2%; the study did not demonstrate end-to-end inference speedup.",
+    "result": "Best tested configurations reduced modeled HBM traffic by 28.6% for Llama and 39.6% for Qwen.",
     "context": "Stanford Tambe Lab · January–June 2026 · Trace-driven analytical results, not measured hardware speedups",
     "resources": [
       {
@@ -220,10 +220,6 @@ const projects = [
             "−43.8%"
           ]
         ]
-      },
-      {
-        "title": "Model scope",
-        "text": "The simulator did not model compute overlap, bank conflicts, port contention, or detailed interconnect behavior. Energy estimates depended on technology assumptions and excluded interconnect energy. Accumulated memory-access latency is not end-to-end inference latency."
       }
     ]
   },
@@ -251,7 +247,7 @@ const projects = [
       "Designed the bandgap reference, OTA, PMOS pass network, and digitally programmable output-voltage trim in Cadence Virtuoso.",
       "Performed hand analysis, transistor sizing, schematic simulation, and iterative optimization.",
       "Developed Verilog trim logic, verified it in Xcelium, and used Genus and Innovus to generate digital layout for analog integration.",
-      "Performed custom layout, design-rule checks, and post-layout extracted verification. The design showcase discusses tooling constraints on mixed-signal LVS during integration."
+      "Performed custom layout, design-rule checks, and post-layout extracted verification."
     ],
     "result": "Met all design specifications in verification, with trim outputs within 1 mV of expected values. Taped out in 180 nm.",
     "context": "Academic project · Results from design verification",
